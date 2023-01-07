@@ -1,0 +1,17 @@
+#Navbar a {
+    color:white;
+}
+.navbar-nav{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+}
+#nav-users{
+    display: flex;
+    
+}
+.navbar-nav a {
+    border-radius: 0.7rem;
+}

@@ -1,0 +1,108 @@
+footer{
+    height: 16vh;
+    width: 100%;    
+    background-color: #031e2d;
+    
+   
+}
+
+#socialMedia{
+    height: 30%;
+    width: 90%;    
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    
+}
+#socialMedia a{
+    text-decoration: none;
+    color:black;
+}
+#socialMedia span{
+    height: 30px;
+    width: 60px;
+    min-width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top:13px;
+    border-radius: 50%;    
+}
+#socialMedia span:hover{
+    background-color: lightgoldenrodyellow;
+}
+#socialMedia>div{
+    border-top: 2px solid black;
+    width: 40%;
+    min-width: 13%;
+    height: 0;
+}
+#contacts{
+    height: 70%;
+    width: 100%;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+}
+#copyRight{
+    height: 30%;
+    width: 40%;    
+    display: flex;    
+    align-items: flex-end;
+    justify-content: center;
+    margin-top: 2%;
+}
+#About{
+    height: 40%;
+    width: 100%;
+    display: flex;    
+    justify-content: center;   
+
+}
+#copyRight span{
+    height: 5%;
+    width: auto;    
+    font-weight: 600;
+    
+}
+#copyRight p{
+    font-size: small;
+    margin: 0;
+    text-align: center;
+    color: white;
+    /* color: #10a3e6; */
+}
+
+#About ul{
+    list-style-type: none;
+    margin: 10px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;    
+    padding: 0;
+    
+    
+}
+#About ul li{
+    
+    font-size: 1rem;
+    /* font-family: cursive; */
+    padding:0px 15px 0px;
+    border-left:2px solid #738692;
+
+}
+#About ul a{
+    text-decoration: none;
+    color:#738692;
+}
+#About ul a:hover{
+    color:lightgoldenrodyellow;
+    text-decoration: underline;
+}
+
+@media screen and (max-width:900px) {
+    footer{
+        padding-top: 25px;
+    }
+}
