@@ -1,4 +1,6 @@
 const User = require('../models/user.js');
+const RP = require('../models/ResetPassword');
+const crypto = require('crypto');
 
 module.exports.SignUp = function(req,res){
     if(req.isAuthenticated()){
@@ -10,7 +12,7 @@ module.exports.SignUp = function(req,res){
 }
 module.exports.Preview = function(req,res){
     return res.render('preview',{
-        title : "Projects"      
+        title : "Home"      
     });
 }
 
@@ -43,7 +45,37 @@ module.exports.destroySession = function(req,res){
 }
 
 module.exports.ResetPassword = function(req,res){
-    return res.render('ResetPassword',{
-        title : "Reset Password"
-    });
+    RP.create({
+        user : req.user.id,
+        token : crypto.randomBytes(20).toString('hex'),
+        is_valid : true
+    },function(err,rp){
+        if(err){console.log('error while creating RP ',err);return}
+        
+        return res.render('ResetPassword',{
+            title : "Reset Password",
+            token : rp.token   
+        });
+    });    
 }
+
+module.exports.UpdatePassword = async function(req,res){
+    
+    if(req.body.password != req.body.confirm_password) res.redirect('back');
+    try{
+        let rp = await RP.findOne({token : req.params.token});
+                
+        if(rp.is_valid){
+            let user = await User.findByIdAndUpdate(rp.user);
+            user.password = req.body.password;
+            user.save();
+            rp.is_valid = false;
+            rp.save();
+            return res.redirect('/users/preview');
+        }
+    }catch(err){
+        console.log('error in update password... ',err);
+        return res.redirect('/');
+    }    
+}
+
