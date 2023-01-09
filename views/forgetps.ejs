@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="/css/forgetps.css">
+
+<div id = "container">
+    <h2>Submit Email for Reset Password</h2>
+    <form method="post" action="/users/reset-password">
+        <div class="mb-3 row">            
+            <div class="col-sm-10">
+                <label for="staticEmail" class="col-sm-2 col-form-label" >Email</label>
+                <input type="email"  class="form-control" name = "email" placeholder="xyz@gmail.com" required>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <input type="submit" class="btn btn-primary mb-3">
+        </div>
+    </form>
+</div>

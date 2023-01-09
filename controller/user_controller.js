@@ -41,3 +41,9 @@ module.exports.destroySession = function(req,res){
         res.redirect('/');
     });   
 }
+
+module.exports.ResetPassword = function(req,res){
+    return res.render('ResetPassword',{
+        title : "Reset Password"
+    });
+}
