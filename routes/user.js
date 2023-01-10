@@ -17,7 +17,9 @@ router.get('/auth/google',passport.authenticate('google',{scope:['profile','emai
 
 router.get('/auth/google/callback',passport.authenticate('google',{failureRedirect:'/userSignin'}),UserController.CreateSession);
 
-router.post('/reset-password',UserController.ResetPassword);
+router.post('/reset-password', passport.checkAuthentication, UserController.ResetPassword);
+
+router.get('/Reset_Password/:token',UserController.Reset);
 router.post('/update-password/:token',UserController.UpdatePassword);
 
 module.exports = router;
