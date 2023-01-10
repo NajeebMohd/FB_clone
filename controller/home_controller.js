@@ -37,7 +37,7 @@ module.exports.SendMeMail = function(req,res){
                 }
             }
             EmailMailers.newEmail(data);
-            
+            req.flash('success','mail is send successfully');
             return res.redirect('/');
         });
     });

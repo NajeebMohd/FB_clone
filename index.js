@@ -9,6 +9,8 @@ const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 const passportGoogle = require('./config/passport-google-oauth-strategy');
 const MongoStore = require('connect-mongo');
+const flash = require('connect-flash');
+const flashMW = require('./config/middleware');
 
 
 app.use(expressLayouts);
@@ -50,6 +52,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
 
+app.use(flash());
+app.use(flashMW.setFlash);
 
 app.use('/',require('./routes'));
 

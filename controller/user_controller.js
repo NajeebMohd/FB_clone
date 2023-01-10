@@ -24,6 +24,7 @@ module.exports.create = function(req,res){
         if(!user){
             User.create(req.body,function(err,user){
                 if(err){console.log('errro while creating the user in db -->> ',err);return;}
+                req.flash('success','user is created');
                 return res.redirect('/');
             });
         }else{
@@ -33,13 +34,15 @@ module.exports.create = function(req,res){
 }
 
 module.exports.CreateSession = function(req,res){    
+    req.flash('success','Logged In sucessfully');
     return res.redirect('/users/preview');
 }
 
 module.exports.destroySession = function(req,res){
     
     req.logout(function(err) {        
-        if (err) { return next(err); }        
+        if (err) { return next(err); } 
+        req.flash('success','Logged Out successfully')       
         res.redirect('/');
     });   
 }
@@ -82,7 +85,9 @@ module.exports.UpdatePassword = async function(req,res){
             user.save();
             rp.is_valid = false;
             rp.save();
-            return res.redirect('/users/preview');// think about it how we are gonna return the user when password is changed
+            
+            req.flash('success','Password is Updated successfully !!');
+            return res.redirect('/users/preview');
         }
     }catch(err){
         console.log('error in update password... ',err);
