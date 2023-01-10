@@ -1,11 +1,11 @@
 const nodeMailer = require('../config/nodemailer');
 
 exports.newEmail = (maildata) => {
-    let htmlString = nodeMailer.renderTemplate({maildata : maildata.token},'/emails/ResetPs.ejs');
+    let htmlString = nodeMailer.renderTemplate({email : maildata.maildata},'/emails/ResetPs.ejs');
     nodeMailer.transporter.sendMail({
         from : 'jscheck170@gmail.com',
         to : maildata.email,
-        subject : 'new comment has been published',
+        subject : 'Reset Password From Nodejs Authentication',
         html : htmlString
     },(err,info) => {
         if(err){console.log('Error in sending mail ',err);return;}

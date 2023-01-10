@@ -31,11 +31,14 @@ module.exports.SendMeMail = function(req,res){
             if(err){console.log('err while sending the mail ',err);return}
             let data = {
                 email : req.body.email,
-                token : rp.token
+                maildata : {
+                    token : rp.token,
+                    name : user.name
+                }
             }
             EmailMailers.newEmail(data);
             
-            res.redirect('/');
+            return res.redirect('/');
         });
     });
 }

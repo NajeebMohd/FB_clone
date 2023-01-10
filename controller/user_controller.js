@@ -46,10 +46,14 @@ module.exports.destroySession = function(req,res){
 
 // rendering the reset password page with sending the token 
 module.exports.Reset = function(req,res){
-    return res.render('ResetPassword',{
-        title : "Reset Password",
-        token : req.params.token
-    })
+    RP.findOne({token:req.params.token},function(err,rp){
+        if(err){console.log('err rendering reset page ',err);return}
+        return res.render('ResetPassword',{
+            title : "Reset Password",
+            token : req.params.token,
+            valid : rp.is_valid
+        });
+    });    
 }
 // to make a token and send a get request to render the reset password page
 module.exports.ResetPassword = function(req,res){
