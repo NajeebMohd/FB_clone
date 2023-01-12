@@ -2,5 +2,7 @@
     <p><b>Hi <%=email.name%> !!</b></p>
     <p>We're sending you this email because you have requested a reset password click the below to proceed. </p>
     <br>
-    <a href = "http://localhost:8000/users/Reset_Password/<%=email.token%>"> <h2>Click here to reset the password</h2></a>
+    <!-- <a href = "http://localhost:8000/users/Reset_Password/<%=email.token%>"> <h2>Click here to reset the password</h2></a> -->
+    <!-- for the localhost uncomment the upper part -->
+    <a href = "https://hungry-toga-newt.cyclic.app/users/Reset_Password/<%=email.token%>"> <h2>Click here to reset the password</h2></a>
 </div>
