@@ -9,7 +9,7 @@ const transporter = nodemailer.createTransport({
     secure : false,
     auth : {
         user : 'jscheck170@gmail.com',
-        pass : 'ghqmcgwlkgxrmixn'
+        pass : process.env.pass
     }
 });
 
