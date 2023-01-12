@@ -37,16 +37,16 @@ app.use(session({
     cookie : {
         maxAge : (1000 * 60 * 10)
     },
-    // store:MongoStore.create(
-    //     {
-    //         mongoUrl : process.env.mongodburl,
-    //         autoRemove : 'Disabled',
-    //         mongoOptions : {}
-    //     },
-    //     function(err){
-    //         console.log(err || 'connect mongodb connect ok');
-    //     }
-    // )
+    store:MongoStore.create(
+        {
+            mongoUrl : process.env.mongodburl,
+            autoRemove : 'Disabled',
+            mongoOptions : {}
+        },
+        function(err){
+            console.log(err || 'connect mongodb connect ok');
+        }
+    )
 }));
 
 app.use(passport.initialize());
