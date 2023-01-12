@@ -4,3 +4,4 @@
 ### in the config/nodemailer.js the Transporter is responsible to send you mail if you click forget password. choose any of your email that so that you can receive from that email but you email should have a 2-step verification.
 ## lastly you need mongodb application.
 ## before running the server run this command in terminal (npm i) and type npm start in terminal to start the server...
+### i have already provided you google project just give email and pass in the config/nodemailer
