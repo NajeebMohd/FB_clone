@@ -22,7 +22,11 @@ module.exports.forgetps = function(req,res){
 
 module.exports.SendMeMail = function(req,res){
     User.findOne({email : req.body.email},function(err,user){
-        if(err){console.log('err while sending the mail ',err);return}        
+        if(err){console.log('err while sending the mail ',err);return}
+        if(user == null){
+            req.flash('error','user not found');
+            return res.redirect('back');
+        }        
         RP.create({
             user : user.id,
             token : crypto.randomBytes(20).toString('hex'),
