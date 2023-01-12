@@ -39,7 +39,7 @@ app.use(session({
     },
     store:MongoStore.create(
         {
-            mongoUrl : 'mongodb://127.0.0.1:27017/NodejsAuthentication',
+            mongoUrl : process.env.mongodburl,
             autoRemove : 'Disabled',
             mongoOptions : {}
         },
