@@ -1,22 +1,42 @@
 <div id = "Navbar">
     <nav class="navbar navbar-expand-lg " style="background-color: #031e2d;">
         <div class="container-fluid">
-          <a class="navbar-brand"><h4>Nodejs Authentication</h4></a>
+          <a class="navbar-brand"><img style="height: 40px; width: 40px;" src="https://cdn-icons-png.flaticon.com/512/2335/2335286.png"></a>
           <button id = "navicon" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon" ></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <% if (locals.user){ %>
-                <a class="nav-link active bg-primary" aria-current="page" href="/users/preview">Home</a>
+              <% if (locals.user) { %>               
+
+                <div class="nav-components">
+                  <form id = "SearchUser"class="nav-components" method="post" action="">
+                    <div class="col-auto">          
+                      <input type="search" name="user" placeholder="Search Users" class="form-control-plaintext"  style="background-color: aliceblue;">
+                    </div>              
+  
+                    <div class="col-auto">
+                      <button type="submit" class="btn btn-primary mb-3"> Search </button>
+                    </div>
+                  </form>
+                </div>
+
               <% } %>
 
-              <div id = "nav-users">
-                <% if (locals.user){ %>
-                  <a class="nav-link bg-success" href="#" style="margin-right: 10px;"><%= locals.user.name %></a>
+              <% if (locals.user){ %>
+                <div class = "nav-components">
+                  <a class="nav-link active bg-primary" aria-current="page" href="/users/preview"><i class="fa-solid fa-house"></i> Home </a>
+                  <a class="nav-link active bg-primary" aria-current="page"><i class="fa-solid fa-user"></i> &nbsp;<%= locals.user.name %></a>
+                </div>
+              <% } %>
+
+              <% if (locals.user){ %>
+                <div id = "nav-users">
+                  <a class="nav-link bg-secondary" href="#" ><i class="fa-brands fa-facebook-messenger"></i></a>
+                  <a class="nav-link bg-warning" href="#" ><i class="fa-solid fa-bell"></i></a>
                   <a class="nav-link bg-danger" href="/users/sign-out">Sign Out</a>
-                <% } %>                   
-              </div>
+                </div>
+              <% } %>                   
 
             </div>
           </div>

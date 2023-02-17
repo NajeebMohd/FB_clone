@@ -18,3 +18,14 @@
 #navicon{
     border : 2px solid white;    
 }
+.nav-components{
+    height: 40px;
+    display: flex;
+    
+}
+.nav-components div,a{
+    margin-right: 10px;
+}
+/* #SearchUser{
+
+} */

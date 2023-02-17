@@ -36,10 +36,10 @@ app.use(session({
     resave : false,
     cookie : {
         maxAge : (1000 * 60 * 10)
-    },
+    },//mongoUrl : process.env.mongodburl, for deployment
     store:MongoStore.create(
         {
-            mongoUrl : process.env.mongodburl,
+            mongoUrl : 'mongodb://127.0.0.1/NodejsAuthentication',
             autoRemove : 'Disabled',
             mongoOptions : {}
         },
