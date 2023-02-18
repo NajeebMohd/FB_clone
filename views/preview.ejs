@@ -1,18 +1,19 @@
 <link rel="stylesheet" href="/css/preview.css">
 
 <div id = "container">
-
-    <h1><%= locals.user.name  %> you have login in sucessfully !!</h1>
-    <form class="row g-3" method="post" action="/users/reset-password">
-        <div class="col-auto">          
-          <input type="hidden" name="email" class="form-control-plaintext" value=<%= locals.user.email %> >
-        </div>
-        
-        <div class="col-auto">
-          <button type="submit" class="btn btn-primary mb-3"> Reset Password </button>
-        </div>
-    </form>
     
+    <div id = "form-div">
+        <div id = "user-info">
+            <img style="height: 100%; width: 10%;" alt="dp">
+            <span><b style="font-size: larger;"><%= locals.user.name%></b></span>
+        </div>
+        <form id = "form-for-post"  method="post" action="/posts/create-post">
+            <input type="text" name = "caption" placeholder="What's on your mind ? " style="width:100%; height: 30%;" >
+            <input type = "file" name = "dp" placeholder="Add Any Photo/video" style="width: 100%; height: 50%;">
+            <input type="submit">
+        </form>
+
+    </div>  
   
 
 </div>

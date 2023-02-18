@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="/css/profile.css">
+
+<div id = "profile-container">
+    
+    <h1><%= locals.user.name  %> you have login in sucessfully !!</h1>
+    <form class="row g-3" method="post" action="/users/reset-password">
+        <div class="col-auto">          
+          <input type="hidden" name="email" class="form-control-plaintext" value=<%= locals.user.email %> >
+        </div>
+        
+        <div class="col-auto">
+          <button type="submit" class="btn btn-primary mb-3"> Reset Password </button>
+        </div>
+    </form>
+
+</div>

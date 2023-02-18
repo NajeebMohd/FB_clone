@@ -15,6 +15,11 @@ module.exports.Preview = function(req,res){
         title : "Home"      
     });
 }
+module.exports.Profile = function(req,res){    
+    return res.render('profile',{
+        title : "Profile"   
+    });
+}
 
 module.exports.create = function(req,res){    
     if(req.body.password != req.body.confirm_password) return res.redirect('back');

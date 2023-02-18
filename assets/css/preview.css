@@ -8,3 +8,20 @@
     padding-bottom: 5%;
     
 }
+#form-div{
+    height: 250px;
+    width: 550px;
+    border: 1px solid black;
+    
+}
+#user-info{
+    height: 20%;
+    width: 100%;
+    display: flex;
+       
+}
+#form-for-post{
+    height: 80%;
+    width: 100%;
+}
+

@@ -8,6 +8,8 @@ const UserController = require('../controller/user_controller');
 router.get('/sign-up',UserController.SignUp);
 router.post('/create',UserController.create);
 router.get('/preview', passport.checkAuthentication, UserController.Preview);
+router.get('/profile', passport.checkAuthentication, UserController.Profile);
+
 
 router.post('/create-session',passport.authenticate('local',{failureRedirect : '/'}),UserController.CreateSession);
 
