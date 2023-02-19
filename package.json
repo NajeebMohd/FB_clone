@@ -4,7 +4,7 @@
   "description": "a web application to track the issues of the projects",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "npx nodemon index.js",
     "dev": "npx nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

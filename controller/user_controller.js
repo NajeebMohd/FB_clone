@@ -1,6 +1,7 @@
 const User = require('../models/user.js');
 const RP = require('../models/ResetPassword');
 const crypto = require('crypto');
+const Post = require('../models/Post');
 
 module.exports.SignUp = function(req,res){
     if(req.isAuthenticated()){
@@ -11,9 +12,15 @@ module.exports.SignUp = function(req,res){
     });
 }
 module.exports.Preview = function(req,res){
-    return res.render('preview',{
-        title : "Home"      
-    });
+    
+    Post.find({user : req.user.id},function(err,post){
+        
+        return res.render('preview',{
+            title : "Home",
+            posts : post     
+        });
+    })
+    
 }
 module.exports.Profile = function(req,res){    
     return res.render('profile',{

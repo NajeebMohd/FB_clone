@@ -24,4 +24,41 @@
     height: 80%;
     width: 100%;
 }
+.user-post{
+    height: auto;
+    min-height: 650px;
+    width: 550px;    
+    border: 2px solid black;
+    margin-top: 3%;
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
+}
+.post-info{
+    height: 88px;
+    width: 100%;
+    background-color: aqua;
+}
+.post-img{
+    height: 410px;
+    width: 100%;
+    background-color: bisque;
+}
+.post-like{
+    height: 58px;
+    width: 100%;
+    background-color: lightpink;
+}
+.post-comment{
+    /* display: none; */
+    height: 100px;
+    width: 100%;
+    background-color: rebeccapurple;
+}
+.comment-form{
+    height: 92px;
+    width: 100%;
+    background-color:brown;
+}
