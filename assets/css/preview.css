@@ -27,7 +27,7 @@
 }
 .user-post{
     height: auto;
-    min-height: 650px;
+    min-height: 600px;
     width: 550px;    
     border: 2px solid black;
     margin-top: 3%;
@@ -38,9 +38,17 @@
 
 }
 .post-info{
-    height: 88px;
+    height: auto;
+    min-height: 88px;
     width: 100%;
     background-color: aqua;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.post-info>div{
+    border: 1px solid black;
+    
 }
 .post-img{
     height: 410px;
@@ -48,18 +56,42 @@
     background-color: bisque;
 }
 .post-like{
-    height: 58px;
+    height: 46px;
     width: 100%;
-    background-color: lightpink;
+    display: flex;
+    
 }
+.post-react{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+}
+
 .post-comment{
-    /* display: none; */
+    display: none;
     height: 100px;
     width: 100%;
     background-color: rebeccapurple;
+    overflow: scroll;
+}
+.comment-form-div{
+    height: 56px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
 }
 .comment-form{
-    height: 92px;
-    width: 100%;
-    background-color:brown;
+    height: 40px;
+    width: 80%;
+    margin: 0%;
+}
+
+.comment-form-div button{
+    border-radius: 1.5rem;
+    background-color:whitesmoke;
 }
