@@ -12,15 +12,6 @@ module.exports.SignUp = function(req,res){
     });
 }
 module.exports.Preview = async function(req,res){
-    
-    // Post.find({},function(err,post){
-        
-    //     return res.render('preview',{
-    //         title : "Home",
-    //         posts : post     
-    //     });
-    // })
-
     try{
         let posts = await Post.find({}).populate({path:"user"});
 
@@ -31,9 +22,7 @@ module.exports.Preview = async function(req,res){
     }catch(err){
         console.log('error in the preview method --> ',err);
         return;
-    }
-
-    
+    }    
 }
 module.exports.Profile = function(req,res){    
     return res.render('profile',{

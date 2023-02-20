@@ -58,16 +58,17 @@
             <div class = "comment-form-div" >
                 <img style="height: 60%; width: 8%;">
 
-                <form class="comment-form" id="comment-form-id-<%= post.id %>" >
+                <form class="comment-form" id="comment-form-id-<%= post.id %>" method="post" action="/comments/create-comment" >
                     
                     <div class="col-10">
-                    <label for="inputPassword2" class="visually-hidden">Password</label>
-                    <input type="text" class="form-control" placeholder="Write a comment...">
+                        <label for="inputPassword2" class="visually-hidden">Password</label>
+                        <input type="text" class="form-control" placeholder="Write a comment..." name="content">
                     </div>
+                    <input type="hidden" name="postId" value="<%= post.id %>">
                     <div class="col-auto">
-                    <button type="submit" class="btn btn-primary mb-3" >
-                        <img src="https://cdn-icons-png.flaticon.com/512/3682/3682321.png" height="30px" width="25px">
-                    </button>
+                        <button type="submit" class="btn btn-primary mb-3" >
+                            <img src="https://cdn-icons-png.flaticon.com/512/3682/3682321.png" height="30px" width="25px">
+                        </button>
                     </div>
 
                 </form>
