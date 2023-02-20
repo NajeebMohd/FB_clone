@@ -11,15 +11,28 @@ module.exports.SignUp = function(req,res){
         title : 'Sign Up'
     });
 }
-module.exports.Preview = function(req,res){
+module.exports.Preview = async function(req,res){
     
-    Post.find({user : req.user.id},function(err,post){
+    // Post.find({},function(err,post){
         
+    //     return res.render('preview',{
+    //         title : "Home",
+    //         posts : post     
+    //     });
+    // })
+
+    try{
+        let posts = await Post.find({}).populate({path:"user"});
+
         return res.render('preview',{
             title : "Home",
-            posts : post     
-        });
-    })
+            posts : posts
+        })
+    }catch(err){
+        console.log('error in the preview method --> ',err);
+        return;
+    }
+
     
 }
 module.exports.Profile = function(req,res){    

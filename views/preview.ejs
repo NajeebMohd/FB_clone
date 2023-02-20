@@ -13,56 +13,68 @@
             <input type="submit">
         </form>
 
-    </div>  
-    
-    <div class = "user-post">
-        <div class = "post-info">
+    </div>      
 
-            <div style="height: 45px; width: 10%;">
-                <img style="height: inherit; width:inherit;" alt="dp">
-            </div>
-            <div style="min-height:45px; width: 80%; height: auto;" >
-                <%= %>
-                
-            </div>
-            <div style="min-height: 45px; width: 90%; height: auto; padding-top: 15px;">
-                <b>Caption : </b>
-                
-            </div>
-        </div>
-        <div class = "post-img">
-            <img style="height: inherit; width: inherit;">
-        </div>
-        
-        <div class = "post-like">
-            <div class="post-react"> <a><h4><i class="fa-solid fa-thumbs-up"></i> &nbsp; like</h4></a> </div>
-            <div class = "post-react"> 
-                <a href="#comment-from-unique" style="text-decoration: none; color: black;">
-                    <h4> <i class="fa-regular fa-comment"></i> &nbsp; comment </h4>
-                </a> 
-            </div>
-        </div>
+    <% for(post of posts) { %>
+        <div class = "user-post" id = "post-id-<%= post.id %>">
+            <div class = "post-info">
 
-        <div class="post-comment">
+                <div style="height: 45px; width: 10%;">
+                    <img style="height: inherit; width:inherit;" alt="dp">
+                </div>
+                <div style="min-height:45px; width: 80%; height: auto;" >
+                    <p>
+                        <b><%= post.user.name %></b>
+                        <br>
+                        <%= post.createdAt%>
+                    </p>
+                    
+                </div>
+                <div style="min-height: 45px; width: 90%; height: auto; padding-top: 15px;">
+                    <p>
+                        <b>Caption : </b><%= post.caption %>
+                    </p>
+                    
+                </div>
+            </div>
+
+            <div class = "post-img">
+                <img style="height: inherit; width: inherit;">
+            </div>
             
-        </div>
+            <div class = "post-like">
+                <div class="post-react"> <a><h4><i class="fa-solid fa-thumbs-up"></i> &nbsp; like</h4></a> </div>
+                <div class = "post-react"> 
+                    <a href="#comment-form-id-<%= post.id %>" style="text-decoration: none; color: black;">
+                        <h4> <i class="fa-regular fa-comment"></i> &nbsp; comment </h4>
+                    </a> 
+                </div>
+            </div>
 
-        <div class = "comment-form-div" id = "comment-from-unique" >
-            <img style="height: 60%; width: 8%;">
-            <form class="comment-form" >
+            <div class="post-comment">
                 
-                <div class="col-10">
-                  <label for="inputPassword2" class="visually-hidden">Password</label>
-                  <input type="text" class="form-control" placeholder="Write a comment...">
-                </div>
-                <div class="col-auto">
-                  <button type="submit" class="btn btn-primary mb-3" >
-                    <img src="https://cdn-icons-png.flaticon.com/512/3682/3682321.png" height="30px" width="25px">
-                  </button>
-                </div>
+            </div>
 
-            </form>
+            <div class = "comment-form-div" >
+                <img style="height: 60%; width: 8%;">
+
+                <form class="comment-form" id="comment-form-id-<%= post.id %>" >
+                    
+                    <div class="col-10">
+                    <label for="inputPassword2" class="visually-hidden">Password</label>
+                    <input type="text" class="form-control" placeholder="Write a comment...">
+                    </div>
+                    <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-3" >
+                        <img src="https://cdn-icons-png.flaticon.com/512/3682/3682321.png" height="30px" width="25px">
+                    </button>
+                    </div>
+
+                </form>
+
+            </div>
         </div>
-    </div>
+    <% } %>
+
 
 </div>
