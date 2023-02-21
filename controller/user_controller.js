@@ -2,6 +2,7 @@ const User = require('../models/user.js');
 const RP = require('../models/ResetPassword');
 const crypto = require('crypto');
 const Post = require('../models/Post');
+const Comment = require('../models/comment');
 
 module.exports.SignUp = function(req,res){
     if(req.isAuthenticated()){
@@ -13,11 +14,18 @@ module.exports.SignUp = function(req,res){
 }
 module.exports.Preview = async function(req,res){
     try{
-        let posts = await Post.find({}).populate({path:"user"});
+        let posts = await Post.find({})
+        .populate({path:"user"})
+        .populate({
+            path : "comments",
+            populate : {
+                path : "user"
+            }
+        });
 
         return res.render('preview',{
             title : "Home",
-            posts : posts
+            posts : posts            
         })
     }catch(err){
         console.log('error in the preview method --> ',err);

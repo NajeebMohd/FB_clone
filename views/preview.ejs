@@ -53,6 +53,26 @@
 
             <div class="post-comment">
                 
+                <% for(comment of post.comments) { %>
+                    <div class="the-comment" id = "comment-id-<%=comment.id%>">
+
+                        <div class = "comment-content">
+                            <img alt="dp">
+                            <div class="comment-para">
+                                <p>                                
+                                    <b><%= comment.user.name %></b>
+                                    <br>
+                                    <%= comment.content%>
+                                </p>
+                            </div>
+                        </div>
+                        <div class = "delete-comment">
+                            <a><h6><i class="fa-solid fa-trash-can"></i></h6></a>
+                        </div>
+                    </div>
+                <% } %>
+
+
             </div>
 
             <div class = "comment-form-div" >

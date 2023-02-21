@@ -12,8 +12,7 @@ module.exports.CreateComment = function(req,res){
             return;
         }
         Post.findById(req.body.postId,function(err,post){
-            if(err){console.log('err in cc',err);return}
-            console.log(comment);
+            if(err){console.log('err in cc',err);return}            
             post.comments.push(comment._id);
             post.save();
         })
