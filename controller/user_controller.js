@@ -19,10 +19,10 @@ module.exports.Preview = async function(req,res){
         .populate({
             path : "comments",
             populate : {
-                path : "user"
+                path : "user"                
             }
         });
-
+        
         return res.render('preview',{
             title : "Home",
             posts : posts            

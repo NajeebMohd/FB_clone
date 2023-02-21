@@ -12,7 +12,7 @@
 #form-div{
     height: 250px;
     width: 550px;
-    border: 1px solid black;
+    border: 1px solid grey;
     
 }
 #user-info{
@@ -29,7 +29,7 @@
     height: auto;
     min-height: 600px;
     width: 550px;    
-    border: 1px solid black;
+    border: 1px solid grey;
     border-radius: 1rem;
     margin-top: 3%;
     background-color: none;
