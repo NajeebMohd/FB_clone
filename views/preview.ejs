@@ -34,7 +34,7 @@
                 </div>
                 <% if(locals.user.id == post.user.id){ %>
                     <div style="height: 35px; width: 7%; display: flex; align-items: center;">
-                        <a href="#">
+                        <a href="/posts/delete-post/<%=post.id%>">
                             <h4 style="color:red; text-align: center;"><i class="fa-solid fa-x"></i></h4>
                         </a>
                     </div>
