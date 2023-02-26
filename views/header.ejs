@@ -6,7 +6,7 @@
             <span class="navbar-toggler-icon" ></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
+            <div class="navbar-nav" id="mobile-nav">
               <% if (locals.user) { %>               
 
                 <div class="nav-components">
@@ -25,16 +25,16 @@
 
               <% if (locals.user){ %>
                 <div class = "nav-components">
-                  <a class="nav-link active bg-primary" aria-current="page" href="/users/preview"><i class="fa-solid fa-house"></i> Home </a>
-                  <a class="nav-link active bg-primary" aria-current="page" href="/users/profile"><i class="fa-solid fa-user"></i> &nbsp;<%= locals.user.name %></a>
+                  <a class="nav-link active bg-primary user-btn" aria-current="page" href="/users/preview"><i class="fa-solid fa-house"></i> &nbsp; Home </a>
+                  <a class="nav-link active bg-primary user-btn" aria-current="page" href="/users/profile"><i class="fa-solid fa-user"></i> &nbsp; <%= locals.user.name %></a>
                 </div>
               <% } %>
 
               <% if (locals.user){ %>
                 <div id = "nav-users">
-                  <a class="nav-link bg-secondary" href="#" ><i class="fa-brands fa-facebook-messenger"></i></a>
-                  <a class="nav-link bg-warning" href="#" ><i class="fa-solid fa-bell"></i></a>
-                  <a class="nav-link bg-danger" href="/users/sign-out">Sign Out</a>
+                  <a class="nav-link bg-secondary user-btn" href="#" ><i class="fa-brands fa-facebook-messenger"></i></a>
+                  <a class="nav-link bg-warning user-btn" href="#" ><i class="fa-solid fa-bell"></i></a>
+                  <a class="nav-link bg-danger user-btn" href="/users/sign-out">Sign Out</a>
                 </div>
               <% } %>                   
 

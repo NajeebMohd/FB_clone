@@ -32,3 +32,15 @@
 /* #SearchUser{
 
 } */
+.user-btn{
+    padding: 5px 25px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width:900px) {
+    #mobile-nav>div{
+        margin-top: 10px;
+    }
+}
