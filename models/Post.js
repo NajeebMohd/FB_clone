@@ -9,7 +9,7 @@ const PostSchema = new mongoose.Schema({
         type: String,
         required : true
     },
-    dp : {
+    PostPicture : {
         type : String
     },
     comments : [

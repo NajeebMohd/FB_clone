@@ -8,9 +8,9 @@
                 <img style="height: 100%; width: 10%;" alt="dp">
                 <span><b style="font-size: larger;"><%= locals.user.name%></b></span>
             </div>
-            <form id = "form-for-post"  method="post" action="/posts/create-post">
+            <form enctype="multipart/form-data" id = "form-for-post"  method="post" action="/posts/create-post">
                 <input type="text" name = "caption" placeholder="What's on your mind ? " style="width:100%; height: 30%;" >
-                <input type = "file" name = "dp" placeholder="Add Any Photo/video" style="width: 100%; height: 50%;">
+                <input type = "file" name = "PostPicture" placeholder="Add Any Photo/video" style="width: 100%; height: 50%;">
                 <input type="submit">
             </form>
     
@@ -48,7 +48,7 @@
             </div>
 
             <div class = "post-img">
-                <img style="height: inherit; width: inherit;">
+                <img style="height: inherit; width: inherit;" src="<%=post.PostPicture%>">
             </div>
             
             <% if(locals.user){ %>
