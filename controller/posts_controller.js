@@ -12,11 +12,10 @@ module.exports.CreatePost = async function(req,res){
                 user: req.user.id,
                 caption : req.body.caption
             });
-            if(req.file){        
-                post.PostPicture = cloudinary.upload(req.file.path, req.file.originalname);
+            if(req.file){                               
+                post.PostPicture = await cloudinary.Upload(req.file.path, req.file.originalname);
                 post.save();
             } 
-
         }
         return res.redirect('back');
     }catch(err){
