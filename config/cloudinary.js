@@ -29,3 +29,12 @@ module.exports.Upload =  function(imgpath,name){
   })    
 }
 
+module.exports.Delete = function(imgName){
+  return new Promise((resolve,reject) => {
+    cloudinary.uploader.destroy(imgName,(err,result) => {
+      console.log(err || result);
+      resolve();      
+    })
+  })
+}
+
