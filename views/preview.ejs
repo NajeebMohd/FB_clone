@@ -53,9 +53,13 @@
             
             <% if(locals.user){ %>
                 <div class = "post-like">
-                    <div class="post-react"> <a><h4><i class="fa-solid fa-thumbs-up"></i> &nbsp; like</h4></a> </div>
+                    <div class="post-react"> 
+                        <a href="/likes/give-likes/?id=<%= post.id %>&type=Post">
+                            <h4><i class="fa-solid fa-thumbs-up"></i> &nbsp; like-<%= post.likes.length %></h4>
+                        </a> 
+                    </div>
                     <div class = "post-react"> 
-                        <a href="#comment-form-id-<%= post.id %>" style="text-decoration: none; color: black;">
+                        <a href="#comment-form-id-<%= post.id %>">
                             <h4> <i class="fa-regular fa-comment"></i> &nbsp; comment </h4>
                         </a> 
                     </div>

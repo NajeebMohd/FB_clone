@@ -9,6 +9,7 @@ const HomeController = require('../controller/home_controller');
 router.use('/users',require('./user.js'));
 router.use('/posts',require('./post.js'));
 router.use('/comments',require('./comment.js'));
+router.use('/likes',require('./like.js'));
 
 router.get('/forgetps',HomeController.forgetps);
 router.post('/send-me-mail',HomeController.SendMeMail);

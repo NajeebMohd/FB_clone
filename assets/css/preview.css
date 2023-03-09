@@ -72,6 +72,10 @@
     padding-top: 10px;
     justify-content: center;
 }
+.post-react a{
+    text-decoration: none; 
+    color: black;
+}
 
 .post-comment{    
     height: auto;

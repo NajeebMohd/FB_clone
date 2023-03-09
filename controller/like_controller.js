@@ -6,7 +6,7 @@ module.exports.GiveLike = async function(req,res){
     try{
         let likeable;// its the id of post or comment
 
-        if(req.query.type == 'post'){
+        if(req.query.type == 'Post'){
             likeable = await Post.findById(req.query.id).populate('likes');
         }else{
             likeable = await Comment.findById(req.query.id).populate('likes');
@@ -34,7 +34,7 @@ module.exports.GiveLike = async function(req,res){
         
         return res.redirect('back');
     }catch(err){
-        if(err){console.log('error in givelike -->> ',err);return}
+        console.log('error in givelike -->> ',err);
         return res.redirect('back');
     }
 }
