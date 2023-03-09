@@ -12,5 +12,13 @@
           <button type="submit" class="btn btn-primary mb-3"> Reset Password </button>
         </div>
     </form>
+    <br><img style="height: 90px; width: 90px; border-radius: 1.5rem;" src = "<%=locals.user.dp%>"><br>
+    <% if(locals.user){ %>
+      <form enctype = "multipart/form-data" method = "post" action = "/users/update-user" >
+        <input type = "text" name = "name" value="<%=locals.user.name%>" required>
+        <input type = "file" name = "dp" placeholder="profile picture">
+        <input type="submit" value="update">
+      </form>
+    <% } %>
 
 </div>

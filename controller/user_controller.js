@@ -3,6 +3,7 @@ const RP = require('../models/ResetPassword');
 const crypto = require('crypto');
 const Post = require('../models/Post');
 const Comment = require('../models/comment');
+const cloudinary = require('../config/cloudinary');
 
 module.exports.SignUp = function(req,res){
     if(req.isAuthenticated()){
@@ -115,5 +116,33 @@ module.exports.UpdatePassword = async function(req,res){
         console.log('error in update password... ',err);
         return res.redirect('/');
     }    
+}
+
+module.exports.UpdateUser = async function(req,res){//need to change the function after and also look for routes of 4 parameter when multer
+    try{
+        let user = await User.findById(req.user.id);
+        
+        if(user && req.body.name){
+            user.name = req.body.name;
+            user.save();
+        }
+        if(req.file && user){
+            if(!user.dp){
+                user.dp = await cloudinary.Upload(req.file.path, req.file.filename);
+                user.save();
+            }else{
+                let PublicId = user.dp;
+                PublicId = PublicId.split('/')[7].slice(0,32);
+                await cloudinary.Delete(PublicId);
+                //deleted the old picture and move towords the new upload of dp in the database
+                user.dp = await cloudinary.Upload(req.file.path, req.file.filename);
+                user.save();                
+            }
+        }
+        return res.redirect('back');
+    }catch(err){
+        console.log('error in update-user -->> ',err);
+        return res.redirect('back');
+    }
 }
 

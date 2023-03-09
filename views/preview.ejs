@@ -5,7 +5,7 @@
     <% if(locals.user){ %>
         <div id = "form-div">
             <div id = "user-info">
-                <img style="height: 100%; width: 10%;" alt="dp">
+                <img style="height: 100%; width: 10%; border-radius: 2rem;" alt="dp" src="<%=locals.user.dp%>">
                 <span><b style="font-size: larger;"><%= locals.user.name%></b></span>
             </div>
             <form enctype="multipart/form-data" id = "form-for-post"  method="post" action="/posts/create-post">
@@ -22,9 +22,9 @@
             <div class = "post-info">
 
                 <div style="height: 45px; width: 10%;">
-                    <img style="height: inherit; width:inherit;" alt="dp">
+                    <img style="height:inherit; width:100%; border-radius: 2.2rem;" alt="dp" src="<%=post.user.dp%>" >
                 </div>
-                <div style="min-height:45px; width: 77%; height: auto;" >
+                <div style="min-height:45px; width:77%; height:auto;">
                     <p>
                         <b><%= post.user.name %></b>
                         <br>
@@ -72,12 +72,13 @@
                     <div class="the-comment" id = "comment-id-<%=comment.id%>">
 
                         <div class = "comment-content">
-                            <img alt="dp">
+                            <img alt="dp" src= "<%=comment.user.dp%>">
                             <div class="comment-para">
                                 <p>                                
                                     <b><%= comment.user.name %></b>
                                     <br>
                                     <%= comment.content%>
+                                    
                                 </p>
                             </div>
                         </div>
@@ -96,7 +97,7 @@
 
             <% if(locals.user){ %>
                 <div class = "comment-form-div" >
-                    <img style="height: 60%; width: 8%;">
+                    <img style="height: 60%; width: 8%; border-radius: 2rem;" src="<%=locals.user.dp%>">
     
                     <form class="comment-form" id="comment-form-id-<%= post.id %>" method="post" action="/comments/create-comment" >
                         
