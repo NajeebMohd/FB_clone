@@ -22,7 +22,13 @@ module.exports.Preview = async function(req,res){
             populate : {
                 path : "user"                
             }
-        });
+        })
+        .populate({
+            path : "likes",
+            populate : {
+                path : 'user'
+            }
+        })
         
         return res.render('preview',{
             title : "Home",

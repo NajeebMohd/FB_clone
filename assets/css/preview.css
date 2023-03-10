@@ -58,6 +58,14 @@
     width: 100%;
     background-color: bisque;
 }
+.post-response{
+    height: 35px;
+    width: 100%;    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 15px 0px;
+}
 .post-like{
     height: 46px;
     width: 100%;

@@ -22,7 +22,7 @@
             <div class = "post-info">
 
                 <div style="height: 45px; width: 10%;">
-                    <img style="height:inherit; width:100%; border-radius: 2.2rem;" alt="dp" src="<%=post.user.dp%>" >
+                    <img style="height:100%; width:100%; border-radius: 2.2rem;" alt="dp" src="<%=post.user.dp%>" >
                 </div>
                 <div style="min-height:45px; width:77%; height:auto;">
                     <p>
@@ -50,12 +50,28 @@
             <div class = "post-img">
                 <img style="height: inherit; width: inherit;" src="<%=post.PostPicture%>">
             </div>
-            
+
+            <% if (post.likes.length >= 1) { %>
+                <div class = "post-response">
+                    <span style="width: 75%; overflow: hidden; height: 24px;">
+                        Liked by <b><%= post.likes[post.likes.length - 1].user.name %></b>                        
+                        <% if(post.likes.length > 1) { %>
+                            and <%=post.likes.length-1%> other
+                        <% } %>                        
+                    </span>
+                    <span>  
+                        <% if(post.comments.length > 1){ %>
+                            <%=post.comments.length%> comment's
+                        <% } %>                        
+                    </span>
+                </div>
+            <% } %>
+                
             <% if(locals.user){ %>
                 <div class = "post-like">
                     <div class="post-react"> 
                         <a href="/likes/give-likes/?id=<%= post.id %>&type=Post">
-                            <h4><i class="fa-solid fa-thumbs-up"></i> &nbsp; like-<%= post.likes.length %></h4>
+                            <h4><i class="fa-solid fa-thumbs-up"></i> &nbsp; like </h4>
                         </a> 
                     </div>
                     <div class = "post-react"> 
