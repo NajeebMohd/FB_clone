@@ -28,7 +28,7 @@
                     <p>
                         <b><%= post.user.name %></b>
                         <br>
-                        <%= post.createdAt%>
+                        <%= post.createdAt %>
                     </p>
                     
                 </div>
@@ -54,9 +54,16 @@
             <% if (post.likes.length >= 1) { %>
                 <div class = "post-response">
                     <span style="width: 75%; overflow: hidden; height: 24px;">
-                        Liked by <b><%= post.likes[post.likes.length - 1].user.name %></b>                        
+                        Liked by 
+                        <b>
+                            <% if(post.likes[post.likes.length - 1].user.name != locals.user.name){ %>
+                                <%= post.likes[post.likes.length - 1].user.name %>                            
+                            <% }else{ %>
+                                You
+                            <% } %>
+                        </b>                        
                         <% if(post.likes.length > 1) { %>
-                            and <%=post.likes.length-1%> other
+                            and <%= post.likes.length-1 %> Other
                         <% } %>                        
                     </span>
                     <span>  

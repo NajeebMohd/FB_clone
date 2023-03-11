@@ -1,6 +1,7 @@
 const Post = require('../models/Post.js');
 const User = require('../models/user');
 const Comment = require('../models/comment');
+const Like = require('../models/like');
 const cloudinary = require('../config/cloudinary');
 
 module.exports.CreatePost = async function(req,res){
@@ -33,7 +34,8 @@ module.exports.DeletePost = async function(req,res){
             PublicId = PublicId.split('/')[7].slice(0,32);//after spliting into array of strings at 7 position id is found with format and we have to remove the format            
             await cloudinary.Delete(PublicId);
             post.remove();
-            await Comment.deleteMany({post: req.params.id});            
+            await Comment.deleteMany({post: req.params.id});
+            await Like.deleteMany({likeable: req.params.id});            
         }
         return res.redirect('back');
     }catch(err){
