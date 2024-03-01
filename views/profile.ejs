@@ -1,9 +1,17 @@
 <link rel="stylesheet" href="/css/profile.css">
 
 <div id = "profile-container">
+
+    <h1>Name : <%= locals.user.name || data.dp %> </h1>
     
-    <h1><%= locals.user.name  %> you have login in sucessfully !!</h1>
-    <form class="row g-3" method="post" action="/users/reset-password">
+    <br><img style="height: 90px; width: 90px; border-radius: 1.5rem;" src = "<%= locals.user.dp || data.dp %>"><br>
+  
+  
+
+    
+    <% if(locals.user){ %>
+      
+      <form class="row g-3" method="post" action="/users/reset-password">
         <div class="col-auto">          
           <input type="hidden" name="email" class="form-control-plaintext" value=<%= locals.user.email %> >
         </div>
@@ -11,14 +19,12 @@
         <div class="col-auto">
           <button type="submit" class="btn btn-primary mb-3"> Reset Password </button>
         </div>
-    </form>
-    <br><img style="height: 90px; width: 90px; border-radius: 1.5rem;" src = "<%=locals.user.dp%>"><br>
-    <% if(locals.user){ %>
+      </form>
       <form enctype = "multipart/form-data" method = "post" action = "/users/update-user" >
         <input type = "text" name = "name" value="<%=locals.user.name%>" required>
         <input type = "file" name = "dp" placeholder="profile picture">
         <input type="submit" value="update">
       </form>
-    <% } %>
+    <% } %>     
 
 </div>

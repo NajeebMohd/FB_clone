@@ -39,11 +39,25 @@ module.exports.Preview = async function(req,res){
         return;
     }    
 }
-module.exports.Profile = function(req,res){    
+module.exports.Profile = async function(req,res){
+    if(req.params.id != 333){
+        let user = await User.findById(req.params.id);
+        return res.render('profile',{
+            title : 'Profile',
+            data : user
+        })
+    }    
+    console.log(req.user)
     return res.render('profile',{
-        title : "Profile"   
+        title : "Profile",
+        data : null
     });
 }
+// module.exports.openProfile = async function(req,res){// the new functionality
+//     console.log('hiii',req.params.id);
+    
+
+// }
 
 module.exports.create = function(req,res){    
     if(req.body.password != req.body.confirm_password) return res.redirect('back');
@@ -57,6 +71,7 @@ module.exports.create = function(req,res){
                 return res.redirect('/');
             });
         }else{
+            req.flash('error','Email already exists Try other one');
             return res.redirect('back');
         }
     });
